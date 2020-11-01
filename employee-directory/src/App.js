@@ -1,8 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import TableDisplay from "./pages/TableDisplay";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
-  return
+  return (
+    <div>
+      < TableDisplay />
+    </div>
+  );
 }
 
 export default App;

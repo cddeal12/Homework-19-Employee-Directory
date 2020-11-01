@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ButtonsBar from "../components/ButtonsBar";
+import EmployeeTable from "../components/EmployeeTable";
 
 class TableDisplay extends Component {
     // employees is an array of objects coresponding to each employee
@@ -57,6 +58,7 @@ class TableDisplay extends Component {
             <div>
                 <h1>Employee Directory</h1>
                 <ButtonsBar />
+                <EmployeeTable employees={this.state.renderedEmployees} />
             </div>
         );
     };

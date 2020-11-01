@@ -8,58 +8,37 @@ class TableDisplay extends Component {
     // sort is a string that communicates what sorting mode is being used
     state = {
         employees: [
-            {name: "Ahhhh", position: "Salesperson", image: "https://via.placeholder.com/150"},
-            {name: "Buhhh", position: "Manager", image: "https://via.placeholder.com/150"},
-            {name: "Cahhh", position: "Salesperson", image: "https://via.placeholder.com/150"},
-            {name: "Duhhh", position: "Advertisement", image: "https://via.placeholder.com/150"},
-            {name: "Ehhhh", position: "Marketing", image: "https://via.placeholder.com/150"},
-            {name: "Fuhhh", position: "Human resources", image: "https://via.placeholder.com/150"}
+            {name: "Alice", position: "Salesperson", image: "https://loremflickr.com/150/150"},
+            {name: "Bert", position: "Manager", image: "https://loremflickr.com/150/150"},
+            {name: "Callie", position: "Salesperson", image: "https://loremflickr.com/150/150"},
+            {name: "Denise", position: "Advertisement", image: "https://loremflickr.com/150/150"},
+            {name: "Ernie", position: "Marketing", image: "https://loremflickr.com/150/150"},
+            {name: "Frank", position: "Human resources", image: "https://loremflickr.com/150/150"}
         ],
         renderedEmployees: [
-            {name: "Ahhhh", position: "Salesperson", image: "https://via.placeholder.com/150"},
-            {name: "Buhhh", position: "Manager", image: "https://via.placeholder.com/150"},
-            {name: "Cahhh", position: "Salesperson", image: "https://via.placeholder.com/150"},
-            {name: "Duhhh", position: "Advertisement", image: "https://via.placeholder.com/150"},
-            {name: "Ehhhh", position: "Marketing", image: "https://via.placeholder.com/150"},
-            {name: "Fuhhh", position: "Human resources", image: "https://via.placeholder.com/150"}
+            {name: "Alice", position: "Salesperson", image: "https://loremflickr.com/150/150"},
+            {name: "Bert", position: "Manager", image: "https://loremflickr.com/150/150"},
+            {name: "Callie", position: "Salesperson", image: "https://loremflickr.com/150/150"},
+            {name: "Denise", position: "Advertisement", image: "https://loremflickr.com/150/150"},
+            {name: "Ernie", position: "Marketing", image: "https://loremflickr.com/150/150"},
+            {name: "Frank", position: "Human resources", image: "https://loremflickr.com/150/150"}
         ],
         sort: "name"
     };
 
     // Sorts either by name or by position, determined by the sort property of state
-    sortEmployees() {
-        if (this.state.sort === "name") {
-            // Used to store the employees as we sort them, then update the state
-            let sortedEmployees = this.state;
-            //Sorting by name
-            sortedEmployees.renderedEmployees.sort((a, b) => {
-                return (a.name > b.name);
-            });
-            this.setState(sortedEmployees);
-
-        } else if (this.state.sort === "position") {
-            let sortedEmployees = this.state;
-            // Sorting by position
-            sortedEmployees.renderedEmployees.sort((a, b) => {
-                return (a.position > b.position);
-            });
-            this.setState(sortedEmployees);
-
-        };
-    };
-
     changeSortName = () => {
         let newState = this.state;
         newState.sort = "name";
         console.log("Changed to sort by " + newState.sort);
 
         newState.renderedEmployees = [
-            {name: "Ahhhh", position: "Salesperson", image: "https://via.placeholder.com/150"},
-            {name: "Buhhh", position: "Manager", image: "https://via.placeholder.com/150"},
-            {name: "Cahhh", position: "Salesperson", image: "https://via.placeholder.com/150"},
-            {name: "Duhhh", position: "Advertisement", image: "https://via.placeholder.com/150"},
-            {name: "Ehhhh", position: "Marketing", image: "https://via.placeholder.com/150"},
-            {name: "Fuhhh", position: "Human resources", image: "https://via.placeholder.com/150"}
+            {name: "Alice", position: "Salesperson", image: "https://loremflickr.com/150/150"},
+            {name: "Bert", position: "Manager", image: "https://loremflickr.com/150/150"},
+            {name: "Callie", position: "Salesperson", image: "https://loremflickr.com/150/150"},
+            {name: "Denise", position: "Advertisement", image: "https://loremflickr.com/150/150"},
+            {name: "Ernie", position: "Marketing", image: "https://loremflickr.com/150/150"},
+            {name: "Frank", position: "Human resources", image: "https://loremflickr.com/150/150"}
         ];
 
         this.setState(newState);
@@ -71,12 +50,31 @@ class TableDisplay extends Component {
         console.log("Changed to sort by " + newState.sort);
 
         newState.renderedEmployees = [
-            {name: "Duhhh", position: "Advertisement", image: "https://via.placeholder.com/150"},
-            {name: "Fuhhh", position: "Human resources", image: "https://via.placeholder.com/150"},
-            {name: "Buhhh", position: "Manager", image: "https://via.placeholder.com/150"},
-            {name: "Ehhhh", position: "Marketing", image: "https://via.placeholder.com/150"},
-            {name: "Ahhhh", position: "Salesperson", image: "https://via.placeholder.com/150"},
-            {name: "Cahhh", position: "Salesperson", image: "https://via.placeholder.com/150"},
+            {name: "Denise", position: "Advertisement", image: "https://loremflickr.com/150/150"},
+            {name: "Frank", position: "Human resources", image: "https://loremflickr.com/150/150"},
+            {name: "Bert", position: "Manager", image: "https://loremflickr.com/150/150"},
+            {name: "Ernie", position: "Marketing", image: "https://loremflickr.com/150/150"},
+            {name: "Alice", position: "Salesperson", image: "https://loremflickr.com/150/150"},
+            {name: "Callie", position: "Salesperson", image: "https://loremflickr.com/150/150"},
+        ];
+
+        this.setState(newState);
+    };
+
+    filterSales = () => {
+        let newState = this.state;
+        newState.renderedEmployees = [
+            {name: "Alice", position: "Salesperson", image: "https://loremflickr.com/150/150"},
+            {name: "Callie", position: "Salesperson", image: "https://loremflickr.com/150/150"},
+        ];
+
+        this.setState(newState);
+    };
+
+    filterManagers = () => {
+        let newState = this.state;
+        newState.renderedEmployees = [
+            {name: "Bert", position: "Manager", image: "https://loremflickr.com/150/150"}
         ];
 
         this.setState(newState);
@@ -84,13 +82,19 @@ class TableDisplay extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <h1>Employee Directory</h1>
                 <ButtonsBar 
-                    byName={this.changeSortName} 
-                    byPosition={this.changeSortPosition} 
+                    byName={this.changeSortName}
+                    byPosition={this.changeSortPosition}
+                    filterSales={this.filterSales}
+                    filterManagers={this.filterManagers}
+                    className="mx-auto"
                 />
-                <EmployeeTable employees={this.state.renderedEmployees} />
+                <EmployeeTable 
+                    employees={this.state.renderedEmployees} 
+                    className="mx-auto my-4 border"
+                />
             </div>
         );
     };

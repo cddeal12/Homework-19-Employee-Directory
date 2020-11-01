@@ -3,10 +3,10 @@ import React from "react";
 function ButtonsBar(props) {
     return (
         <nav>
-            <button>Hi</button>
-            <button>Hewwo</button>
-            <button>Wippee</button>
-            <button>AHHHH</button>
+            <button onClick={props.byName} data-value="name">Sort By Name</button>
+            <button onClick={props.byPosition} data-value="position">Sort By Position</button>
+            <button>WIP</button>
+            <button>WIP</button>
         </nav>
     )
 }

@@ -41,23 +41,55 @@ class TableDisplay extends Component {
             let sortedEmployees = this.state;
             // Sorting by position
             sortedEmployees.renderedEmployees.sort((a, b) => {
-                return (a.position > a.position);
+                return (a.position > b.position);
             });
             this.setState(sortedEmployees);
 
         };
     };
 
-    changeSort(type) {
-        this.setState(type);
-        this.sortEmployees();
+    changeSortName = () => {
+        let newState = this.state;
+        newState.sort = "name";
+        console.log("Changed to sort by " + newState.sort);
+
+        newState.renderedEmployees = [
+            {name: "Ahhhh", position: "Salesperson", image: "https://via.placeholder.com/150"},
+            {name: "Buhhh", position: "Manager", image: "https://via.placeholder.com/150"},
+            {name: "Cahhh", position: "Salesperson", image: "https://via.placeholder.com/150"},
+            {name: "Duhhh", position: "Advertisement", image: "https://via.placeholder.com/150"},
+            {name: "Ehhhh", position: "Marketing", image: "https://via.placeholder.com/150"},
+            {name: "Fuhhh", position: "Human resources", image: "https://via.placeholder.com/150"}
+        ];
+
+        this.setState(newState);
+    };
+
+    changeSortPosition = () => {
+        let newState = this.state;
+        newState.sort = "position";
+        console.log("Changed to sort by " + newState.sort);
+
+        newState.renderedEmployees = [
+            {name: "Duhhh", position: "Advertisement", image: "https://via.placeholder.com/150"},
+            {name: "Fuhhh", position: "Human resources", image: "https://via.placeholder.com/150"},
+            {name: "Buhhh", position: "Manager", image: "https://via.placeholder.com/150"},
+            {name: "Ehhhh", position: "Marketing", image: "https://via.placeholder.com/150"},
+            {name: "Ahhhh", position: "Salesperson", image: "https://via.placeholder.com/150"},
+            {name: "Cahhh", position: "Salesperson", image: "https://via.placeholder.com/150"},
+        ];
+
+        this.setState(newState);
     };
 
     render() {
         return (
             <div>
                 <h1>Employee Directory</h1>
-                <ButtonsBar />
+                <ButtonsBar 
+                    byName={this.changeSortName} 
+                    byPosition={this.changeSortPosition} 
+                />
                 <EmployeeTable employees={this.state.renderedEmployees} />
             </div>
         );
